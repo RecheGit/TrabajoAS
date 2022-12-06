@@ -1,0 +1,15 @@
+services:
+  couchdb:
+    image: couchdb
+    environment:
+      - COUCHDB_USER=root
+      - COUCHDB_PASSWORD=1234
+    ports:
+      - "5984:5984"
+
+  cliente:
+
+    container_name: container-couch
+    build: .
+    links:
+      - couchdb
